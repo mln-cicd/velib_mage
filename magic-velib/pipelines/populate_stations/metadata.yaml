@@ -1,0 +1,13 @@
+name: populate_stations
+type: pipeline
+blocks:
+  - name: fetch_data
+    type: data_loader
+  - name: process_station_data
+    type: transformer
+    upstream_blocks:
+      - fetch_data
+  - name: populate_stations
+    type: transformer
+    upstream_blocks:
+      - process_station_data

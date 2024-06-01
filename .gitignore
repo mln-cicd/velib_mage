@@ -172,3 +172,4 @@ scratch*
 # magic-zoomcamp
 *.json
 
+temp/

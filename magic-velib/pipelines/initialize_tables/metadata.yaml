@@ -1,0 +1,20 @@
+name: initialize_tables
+type: pipeline
+blocks:
+  - name: fetch_data
+    type: data_loader
+
+  - name: process_data
+    type: transformer
+    upstream_blocks:
+      - fetch_data
+
+  - name: populate_locations
+    type: transformer
+    upstream_blocks:
+      - process_data
+
+  - name: check_station_codes_count
+    type: transformer
+    upstream_blocks:
+      - populate_locations
